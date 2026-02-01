@@ -18,7 +18,7 @@
     <description>Orders component</description>
 
     <properties>
-        <java.version>21</java.version>
+        <java.version>17</java.version>
         <mapstruct.version>1.6.3</mapstruct.version>
     </properties>
 
@@ -183,14 +183,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
+                <!-- <executions>
                     <execution>
                         <goals>
                             <goal>start</goal>
                             <goal>stop</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions> -->
             </plugin>
             <plugin>
                 <groupId>org.springdoc</groupId>

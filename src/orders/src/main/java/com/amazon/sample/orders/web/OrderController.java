@@ -24,6 +24,9 @@ import com.amazon.sample.orders.web.payload.Order;
 import com.amazon.sample.orders.web.payload.OrderMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
@@ -64,5 +67,15 @@ public class OrderController {
       .peek(o -> System.out.println("Order: " + o))
       .map(this.orderMapper::toExistingOrder)
       .collect(Collectors.toList());
+  }
+  
+  @GetMapping(path="/dummy", produces = { "application/json" })
+  @Operation(summary = "List orders", operationId = "listOrders")
+  public ExistingOrder dummyOrder() {
+	  ExistingOrder existingOrder = new ExistingOrder();
+	  existingOrder.setId("ORDER123");
+	  existingOrder.setCreatedDate(LocalDateTime.now());
+	  return existingOrder;
+    
   }
 }
